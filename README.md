@@ -1,10 +1,10 @@
-#zbx_nginx_template
+# zbx_nginx_template
 
 Zabbix template for Nginx (python)
 
 It's accumulate nginx stats and parse the access.log (just pice of log at once) and push result in Zabbix through trap-messages
 
-##System requirements
+## System requirements
 
 - [python](http://www.python.org/downloads/)
 - [nginx](http://nginx.org/) with configured http_stub_status_module and access.log
@@ -63,10 +63,9 @@ location /nginx_stat {
   stub_status on;       # Turn on nginx stats
   access_log   off;     # We do not need logs for stats
   allow 127.0.0.1;      # Security: Only allow access from IP
+  allow ::1;            # Security IPv6: allow only from localhost
   deny all;             # Deny requests from the other of the world
 }
 ```
 
 That is all :)
-
-
